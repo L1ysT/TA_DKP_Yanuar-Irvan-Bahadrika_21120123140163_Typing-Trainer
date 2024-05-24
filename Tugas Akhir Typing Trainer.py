@@ -1,9 +1,9 @@
-import tkinter as tk
+import tkinter as tk # Modul 8: GUI
 import random
 import time
 from threading import Thread
 
-class TypingTest:
+class TypingTest: # Modul 5 :OOP
     def __init__(self, master):
         self.master = master
         self.master.title("Typing Test")
@@ -12,13 +12,13 @@ class TypingTest:
         self.time_limit = 60
         self.start_time = None
         self.running = False
-        self.word_list = ["sebuah", "jangan", "bunga", "beberapa", "fungsi", "mungkin", "suatu", "kondisi", "perulangan", "metode", "melainkan", "dapat", "kelas", "walaupun", "hadiah", "mengapa", "dimana", "nyata", "akan", "saat"]        
+        self.word_list = ["sebuah", "jangan", "bunga", "beberapa", "fungsi", "mungkin", "suatu", "kondisi", "perulangan", "metode", "melainkan", "dapat", "kelas", "walaupun", "hadiah", "mengapa", "dimana", "nyata", "akan", "saat"] # Modul 1: Variabel
         self.words_to_type = random.sample(self.word_list, 10)
         self.typed_words = []
         
         self.setup_gui()
 
-    def setup_gui(self):
+    def setup_gui(self): 
         self.label = tk.Label(self.master, text="Type the following words:", font=("Helvetica", 16))
         self.label.pack(pady=20)
         
@@ -41,8 +41,8 @@ class TypingTest:
         self.result_label = tk.Label(self.master, text="", font=("Helvetica", 16))
         self.result_label.pack(pady=20)
 
-    def start_typing(self, event):
-        if not self.running:
+    def start_typing(self, event): 
+        if not self.running: # Modul 2: Pengkondisian
             self.start_time = time.time()
             self.running = True
             Thread(target=self.update_timer).start()
@@ -77,7 +77,7 @@ class TypingTest:
         
         self.result_label.config(text=f"Accuracy: {accuracy:.2f}%, WPM: {wpm:.2f}")
     
-    def restart(self):
+    def restart(self): # Modul 4: Function dan Method, Modul 3: Perulangan (tombol restart)
         self.running = False
         self.start_time = None
         self.words_to_type = random.sample(self.word_list, 10)
@@ -88,7 +88,7 @@ class TypingTest:
         self.word_display.config(text=" ".join(self.words_to_type))
         self.result_label.config(text="")
         
-if __name__ == "__main__":
+if __name__ == "__main__": 
     root = tk.Tk()
     app = TypingTest(root)
     root.mainloop()
