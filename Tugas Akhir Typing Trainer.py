@@ -12,7 +12,8 @@ class TypingTest: # Modul 5 :OOP
         self.time_limit = 60
         self.start_time = None
         self.running = False
-        self.word_list = ["sebuah", "jangan", "bunga", "beberapa", "fungsi", "mungkin", "suatu", "kondisi", "perulangan", "metode", "melainkan", "dapat", "kelas", "walaupun", "hadiah", "mengapa", "dimana", "nyata", "akan", "saat"] # Modul 1: Variabel
+        # Modul 1: Array
+        self.word_list = ["sebuah", "jangan", "bunga", "beberapa", "fungsi", "mungkin", "suatu", "kondisi", "perulangan", "metode", "melainkan", "dapat", "kelas", "walaupun", "hadiah", "mengapa", "dimana", "nyata", "akan", "saat"]
         self.words_to_type = random.sample(self.word_list, 10)
         self.typed_words = []
         
