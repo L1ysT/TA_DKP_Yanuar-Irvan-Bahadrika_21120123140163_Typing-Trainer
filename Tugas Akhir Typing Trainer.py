@@ -9,7 +9,7 @@ class TypingTest: # Modul 5 :OOP
         self.master.title("Typing Test")
         self.master.geometry("1000x400")
         
-        self.time_limit = 60
+        self.time_limit = 20
         self.start_time = None
         self.running = False
         # Modul 1: Array
@@ -54,7 +54,7 @@ class TypingTest: # Modul 5 :OOP
                 self.entry.insert(tk.END, ".") 
                 self.calculate_results()
     
-    def update_timer(self):
+    def update_timer(self): # Modul 4: Function dan Method, Modul 3: Perulangan
         while self.running:
             elapsed_time = time.time() - self.start_time
             if elapsed_time >= self.time_limit:
@@ -74,11 +74,11 @@ class TypingTest: # Modul 5 :OOP
         
         accuracy = (correct_words / len(self.words_to_type)) * 100
         elapsed_time = time.time() - self.start_time
-        wpm = (correct_words / 5) / (elapsed_time / 60)
+        wpm = (correct_words / 5) / (elapsed_time / 20)
         
         self.result_label.config(text=f"Accuracy: {accuracy:.2f}%, WPM: {wpm:.2f}")
     
-    def restart(self): # Modul 4: Function dan Method, Modul 3: Perulangan (tombol restart)
+    def restart(self): 
         self.running = False
         self.start_time = None
         self.words_to_type = random.sample(self.word_list, 10)
