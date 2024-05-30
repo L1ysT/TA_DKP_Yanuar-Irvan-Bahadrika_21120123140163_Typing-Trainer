@@ -4,7 +4,7 @@ import time
 from threading import Thread
 
 class TypingTest: # Modul 5 :OOP
-    def __init__(self, master):
+    def __init__(self, master):  # Modul 4: Function dan Method
         self.master = master
         self.master.title("Typing Test")
         self.master.geometry("1000x400")
@@ -54,7 +54,7 @@ class TypingTest: # Modul 5 :OOP
                 self.entry.insert(tk.END, ".") 
                 self.calculate_results()
     
-    def update_timer(self): # Modul 4: Function dan Method, Modul 3: Perulangan
+    def update_timer(self): # Modul 3: Perulangan
         while self.running:
             elapsed_time = time.time() - self.start_time
             if elapsed_time >= self.time_limit:
@@ -74,7 +74,7 @@ class TypingTest: # Modul 5 :OOP
         
         accuracy = (correct_words / len(self.words_to_type)) * 100
         elapsed_time = time.time() - self.start_time
-        wpm = (correct_words / 5) / (elapsed_time / 20)
+        wpm = ((correct_words*10) / 5) / (elapsed_time / 20)
         
         self.result_label.config(text=f"Accuracy: {accuracy:.2f}%, WPM: {wpm:.2f}")
     
