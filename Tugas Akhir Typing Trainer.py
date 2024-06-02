@@ -7,7 +7,7 @@ class TypingTest: # Modul 5 :OOP
     def __init__(self, master):  # Modul 4: Function dan Method
         self.master = master
         self.master.title("Typing Test")
-        self.master.geometry("1000x400")
+        self.master.geometry("1000x500")
         
         self.time_limit = 20
         self.start_time = None
@@ -22,6 +22,9 @@ class TypingTest: # Modul 5 :OOP
     def setup_gui(self): 
         self.label = tk.Label(self.master, text="Type the following words:", font=("Helvetica", 16))
         self.label.pack(pady=20)
+        
+        self.timer_label = tk.Label(self.master, text=f"waktu: {self.time_limit} seconds", font=("Helvetica", 16))
+        self.timer_label.pack(pady=20)
         
         self.word_display = tk.Label(self.master, text=" ".join(self.words_to_type), font=("Helvetica", 16))
         self.word_display.pack(pady=20)
@@ -57,6 +60,10 @@ class TypingTest: # Modul 5 :OOP
     def update_timer(self): # Modul 3: Perulangan
         while self.running:
             elapsed_time = time.time() - self.start_time
+            
+            remaining_time = max(self.time_limit - int(elapsed_time), 0)
+            self.timer_label.config(text=f"waktu: {remaining_time} seconds")
+            
             if elapsed_time >= self.time_limit:
                 self.calculate_results()
                 break
